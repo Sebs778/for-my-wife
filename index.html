@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#210d36">
+  <title>Para Elena, mi niña bonita ❤️</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --pink: #ff75b7;
+      --hot-pink: #ff3f91;
+      --light-pink: #ffd2e8;
+      --purple: #210d36;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      color: #fff7fc;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      text-align: center;
+      background:
+        radial-gradient(circle at 12% 15%, #ff9ccc55 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 22%, #ffffffaa 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 78%, #ff8cc855 0 2px, transparent 3px),
+        radial-gradient(circle at 75% 70%, #ffffff88 0 1px, transparent 2px),
+        linear-gradient(145deg, #10091f, #43143f 52%, #170c2b);
+      background-size: 95px 95px, 130px 130px, 170px 170px, 115px 115px, auto;
+    }
+
+    .card {
+      width: min(100%, 480px);
+      padding: 28px 22px;
+      border: 1px solid #ff9dd866;
+      border-radius: 28px;
+      background: linear-gradient(155deg, #170b2de8, #451638e8);
+      box-shadow: 0 0 38px #ff4b9b2e, inset 0 0 25px #ffb6df0b;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tiny-stars {
+      color: var(--light-pink);
+      letter-spacing: 10px;
+      margin-bottom: 8px;
+      animation: twinkle 2.4s ease-in-out infinite alternate;
+    }
+
+    .heart {
+      display: inline-block;
+      font-size: clamp(82px, 22vw, 112px);
+      line-height: 1.2;
+      filter: drop-shadow(0 0 18px #ff2d83a6);
+      animation: heartbeat 1.15s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    h1 {
+      color: var(--pink);
+      font-size: clamp(27px, 7vw, 36px);
+      margin: 10px 0 4px;
+    }
+
+    .name {
+      margin: 0 0 18px;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: clamp(31px, 8vw, 42px);
+      color: #ffd1e8;
+    }
+
+    p { line-height: 1.75; }
+
+    .intro { margin: 0 auto 12px; max-width: 360px; }
+
+    .phrase {
+      color: var(--light-pink);
+      font-style: italic;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 23px;
+      margin: 12px 0 4px;
+      background: linear-gradient(100deg, #ff3f91, #d52f9d);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 20px #ff3f9144;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    button:hover, button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 25px #ff3f9177;
+      outline: 2px solid #ffd2e8;
+      outline-offset: 3px;
+    }
+
+    .letter {
+      display: none;
+      text-align: left;
+      margin-top: 20px;
+      padding: 20px 18px;
+      border: 1px solid #f58bdc99;
+      border-radius: 20px;
+      background: #160b2c7a;
+      animation: appear .7s ease both;
+    }
+
+    .letter.open { display: block; }
+
+    .letter h2 {
+      color: var(--pink);
+      text-align: center;
+      font-family: Georgia, serif;
+      font-style: italic;
+      margin-top: 0;
+    }
+
+    .letter p { margin: 12px 0; }
+
+    .signature {
+      text-align: right;
+      color: var(--light-pink);
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      margin-top: 18px;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #ffd2e8;
+      margin-top: 22px;
+    }
+
+    .floating {
+      position: fixed;
+      color: #ff8dc7;
+      opacity: .55;
+      pointer-events: none;
+      animation: float 7s ease-in-out infinite;
+      z-index: 0;
+    }
+    .f1 { top: 9%; left: 7%; font-size: 25px; }
+    .f2 { top: 18%; right: 8%; font-size: 20px; animation-delay: -2s; }
+    .f3 { bottom: 12%; left: 8%; font-size: 18px; animation-delay: -4s; }
+    .f4 { bottom: 18%; right: 7%; font-size: 27px; animation-delay: -1s; }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.12); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.08); }
+      60% { transform: scale(1); }
+    }
+    @keyframes twinkle { from { opacity: .55; } to { opacity: 1; } }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-18px) rotate(8deg); }
+    }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <span class="floating f1" aria-hidden="true">♡</span>
+  <span class="floating f2" aria-hidden="true">✦</span>
+  <span class="floating f3" aria-hidden="true">♡</span>
+  <span class="floating f4" aria-hidden="true">✧</span>
+
+  <main class="card">
+    <div class="tiny-stars" aria-hidden="true">✦ ✧ ✦</div>
+    <div class="heart" aria-label="Corazón latiendo">❤️</div>
+
+    <h1>Para mi niña bonita</h1>
+    <div class="name">♡ Elena ♡</div>
+
+    <p class="intro">
+      Si pudiera regalarte algo en este instante, sería la oportunidad
+      de verte con mis ojos y que entendieras lo increíble que eres para mí.
+    </p>
+
+    <p class="phrase">En todos mis universos, te elegiría a ti.</p>
+    <p>Hay algo que quiero decirte...</p>
+
+    <button id="openLetter" type="button" aria-expanded="false" aria-controls="letter">
+      💌 Abre tu cartita ♡
+    </button>
+
+    <section class="letter" id="letter" aria-live="polite">
+      <h2>Mi amor, Elena ♡</h2>
+
+      <p>
+        Quiero recordarte que eres una persona muy especial para mí.
+        Incluso en tus días difíciles, mereces cariño, paciencia y cosas bonitas.
+      </p>
+
+      <p>
+        No tienes que estar bien todo el tiempo. Quiero acompañarte en tus
+        días felices y también en aquellos en los que el mundo se siente pesado.
+      </p>
+
+      <p>
+        Gracias por existir y por dejarme compartir un pedacito de tu vida contigo.
+        Ojalá pudiera recordarte siempre lo mucho que vales y lo bonito que es
+        tenerte en mi vida.
+      </p>
+
+      <p class="phrase" style="text-align:center;">
+        En todos mis universos,<br>te elegiría a ti. ♡
+      </p>
+
+      <p class="signature">
+        Con todo mi amor,<br>
+        Sebz ♡
+      </p>
+    </section>
+
+    <div class="footer">♡ Hecho especialmente para ti ♡</div>
+  </main>
+
+  <script>
+    const button = document.getElementById("openLetter");
+    const letter = document.getElementById("letter");
+
+    button.addEventListener("click", () => {
+      const isOpen = letter.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      button.textContent = isOpen ? "💗 Cierra tu cartita" : "💌 Abre tu cartita ♡";
+    });
+  </script>
+</body>
+</html>
